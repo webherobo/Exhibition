@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>标准网页</title>
+<include file="Public/head"/>
+<script type="text/javascript">
+   $(function () {
+   $('ul.nav > li').click(function (e) {
+      //e.preventDefault();
+      $('ul.nav > li').removeClass('active');
+      $(this).addClass('active');
+   });
+ $('#systemSetting').collapse('show');
+ // $('#systemSetting').on('show.bs.collapse', function () {
+  //       alert('嘿，当您展开时会提示本警告');})
+
+});
+</script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+            <div class="col-xs-10 " >
+                <nav class="navbar navbar-default" role="navigation">
+                   <div class="navbar-header">
+                       <a class="navbar-brand"  href="#">CMS管理系统</a>
+                   </div>
+                   <div>
+                   <ul class="nav nav-tabs nav-justified" >
+                       <li class="active"><a href="#">Home</a></li>
+                       <li><a href="#">SVN</a></li>
+                       <li><a href="#">iOS</a></li>
+                       <li><a href="#">VB.Net</a></li>
+                       <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                             Java <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu">
+                             <li><a href="#">Swing</a></li>
+                             <li><a href="#">jMeter</a></li>
+                             <li><a href="#">EJB</a></li>
+                             <li class="divider"></li>
+                             <li><a href="#">分离的链接</a></li>
+                          </ul>
+                       </li>
+                       <li><a href="#">PHP</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                    <div class="col-xs-2 ">
+                        <div class="btn-group" >
+                       <button type="button" class="btn btn-default dropdown-toggle btn-lg" 
+                          data-toggle="dropdown" ><i class="glyphicon glyphicon-user"></i>
+                          用户管理中心 
+                       </button>
+                       <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">功能</a></li>
+                          <li><a href="#">另一个功能</a></li>
+                          <li><a href="#">其他</a></li>
+                          <li class="divider"></li>
+                          <li><a href="{:U('User/logout')}">退出</a></li>
+                       </ul>
+                    </div>
+		</div>
+	</div>
+   <div class="row">        
+    <div class="container-fluid">
+        <div class="row">  
+            <include file="Public/left"/>
+            <div class="col-md-10 panel panel-default" >
+                   <div class="panel-body">
+                   这是一个基本的面板
+                   </div>
+            </div>
+        </div>
+    </div>   
+            
+    </div>
+        
+        
+    <h1 class="text-center" >Hello, world!</h1>
+<div class="container">
+  <div class="jumbotron">
+    <h1>我的第一个 Bootstrap 页面</h1>
+    <p>重置窗口大小，查看响应式效果！</p> 
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>学的不仅是技术，更是梦想！</p>
+      <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>学的不仅是技术，更是梦想！</p>
+      <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3> 
+      <p>学的不仅是技术，更是梦想！</p>
+      <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+    </div>
+  </div>
+</div>
+
+
+
+    <include file="Public/footer"/>
+</body>
+</html> 

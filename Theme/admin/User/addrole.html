@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>角色添加</title>
+        <include file="Public/head"/>
+
+    </head>
+    <body>
+        <div class="container">
+            <include file="Public/header"/>
+            <div class="row">        
+                <div class="container-fluid">
+                    <div class="row">  
+                        <include file="Public/left"/>
+                        <div class="col-md-10 panel panel-default" >
+                            <div class="panel-body">
+                                <h1>角色管理
+                                    <small>角色添加</small>
+                                </h1>
+                                <form class="form-horizontal" role="form" action="__SELF__" method="post">
+                                    <div class="form-group">
+                                        <label for="firstname" class="col-sm-2 control-label">角色组</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="firstname" disabled
+                                                   placeholder="请输入角色名称" name="pid"  value="0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="firstname" class="col-sm-2 control-label">角色名称</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="firstname" 
+                                                   placeholder="请输入角色名称" name="rolename"  value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="firstname" class="col-sm-2 control-label">英文名称</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="firstname" 
+                                                   placeholder="请输入角色名称" name="roleenname"  value="{$role['enname']}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name='status'> 启用
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-default">确 认</button>
+                                </div>
+                            </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>   
+
+        </div>
+
+
+        <h1 class="text-center" >Hello, world!</h1>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>我的第一个 Bootstrap 页面</h1>
+                <p>重置窗口大小，查看响应式效果！</p> 
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Column 1</h3>
+                    <p>学的不仅是技术，更是梦想！</p>
+                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Column 2</h3>
+                    <p>学的不仅是技术，更是梦想！</p>
+                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Column 3</h3> 
+                    <p>学的不仅是技术，更是梦想！</p>
+                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <include file="Public/footer"/>
+    </body>
+</html> 
