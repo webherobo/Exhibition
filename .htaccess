@@ -1,5 +1,5 @@
 <IfModule mod_rewrite.c>
-  Options +FollowSymlinks
+  Options +FollowSymlinks //注释
   RewriteEngine On
 
   RewriteCond %{REQUEST_FILENAME} !-d
