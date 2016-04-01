@@ -16,45 +16,31 @@ namespace Admin\Model;
 
 use Think\Model\RelationModel;
 
-class UserModel extends RelationModel {
-
-    protected $fields = array('id', 'username', 'rolename', 'email', 'password', 'update_time', 'create_time');
-
+class StudentsModel extends RelationModel {
     /* 用户模型自动验证 */
+
+    //protected $fields = array('id', 'name', 'ages', 'email', 'card_id','tel','comment','receiver', 'update_time', 'create_time');
     protected $_validate = array(
         /* 验证用户名 */
-        array('username', '1,30', -1, self::EXISTS_VALIDATE, 'length'), //用户名长度不合法
-        array('username', '', '帐号名称已经存在！', 0, 'unique', 1), // 在新增的时候验证name字段是否唯一
-        array('username', '', -3, self::EXISTS_VALIDATE, 'unique'), //用户名被占用
-
-        /* 验证密码 */
-        array('password', 'require', '密码必须'),
+        array('name', '', '帐号名称已经存在！', 0, 'unique', 1), // 在新增的时候验证name字段是否唯一
+        //array('tel', '', -3, self::EXISTS_VALIDATE, 'unique'), //手机被占用
+        array('card_id', 'require', '身份证号必须'),
+        array('ages', 'require', '年龄必须'),
+        array('receiver', 'require', '推荐人必须'),
         /* 验证邮箱 */
         array('email', 'email', -5, self::EXISTS_VALIDATE), //邮箱格式不正确
-        array('email', '1,32', -6, self::EXISTS_VALIDATE, 'length'), //邮箱长度不合法
-        array('email', 'checkDenyEmail', -7, self::EXISTS_VALIDATE, 'callback'), //邮箱禁止注册
-        array('email', '', -8, self::EXISTS_VALIDATE, 'unique'), //邮箱被占用
+            //array('email', '1,32', -6, self::EXISTS_VALIDATE, 'length'), //邮箱长度不合法
+            //array('email', 'checkDenyEmail', -7, self::EXISTS_VALIDATE, 'callback'), //邮箱禁止注册
+            //array('email', '', -8, self::EXISTS_VALIDATE, 'unique'), //邮箱被占用
+            // array('comment', '', 2, 'ignore'),
     );
 
     /* 用户模型自动完成 */
     protected $_auto = array(
-        array('comment', '', 2, 'ignore'),
-        array('password', 'pwdHash', self::MODEL_BOTH, 'callback'),
-        array('create_time', 'dateftime', self::MODEL_INSERT, 'callback'),
-        array('update_time', 'dateftime', self::MODEL_BOTH, 'callback'),
+        array('receipt', '0'),
+        array('create_time', 'dateftime', 1, 'callback'),
+        array('update_time', 'dateftime', 1, 'callback'),
     );
-
-//加密
-    protected function pwdHash() {
-        $pwd = I("post.password");
-        if (isset($pwd)) {
-            $pwd = md5($_POST['password']);
-            return $pwd;
-            //return hash('md5',$_POST['password']);
-        } else {
-            return false;
-        }
-    }
 
     /**
      * 获取时间
@@ -106,59 +92,23 @@ class UserModel extends RelationModel {
      * @param  string $mobile   用户手机号码
      * @return integer          注册成功-用户信息，注册失败-错误编号
      */
-    public function adduser($udata = '') {
-        $data = array(
-            'username' => $udata['username'],
-            'password' => $udata['password'],
-            'rolename' => $udata['rolename'],
-            'email' => $udata['email'],
-        );
-
+    public function adduser($data) {
         /* 添加用户 */
         if ($this->create($data)) {
             $uid = $this->add();
+
             return $uid ? $uid : 0; //0-未知错误，大于0-注册成功
         } else {
+            // echo $this->getLastSql();exit;
             return $this->getError(); //错误详情见自动验证注释
-        }
-    }
-
-    /**
-     * 用户登录认证
-     * @param  string  $username 用户名
-     * @param  string  $password 用户密码
-     * @param  integer $type     用户名类型 （1-用户名，2-邮箱，3-手机，4-UID）
-     * @return integer           登录成功-用户ID，登录失败-错误编号
-     */
-    public function verifyUsers($username, $password) {
-
-        $map = array();
-        $map['username'] = $username;
-
-        /* 获取用户数据 */
-        $user = $this->where($map)->find();
-
-        if (is_array($user)) {
-            /* 验证用户密码 */
-            if (md5($password) === $user['password']) {
-                return $user; //登录成功，返回用户ID
-            } else {
-                return -2; //密码错误
-            }
-        } else {
-            return -1; //用户不存在或被禁用
         }
     }
 
     //用户列表
 
-    public function userlist($currentpage, $condition = "") {
-        if($condition!= "") {
-            
-            $userlist = $this->where($condition)->select();
-        } else {
-            $userlist = $this->page($currentpage != "" ? $currentpage : 1, 2)->order('id asc')->select();
-        }
+    public function userlist($currentpage) {
+
+        $userlist = $this->order('id asc')->page($currentpage != "" ? $currentpage : 1, 6)->select();
         return $userlist;
     }
 
@@ -227,31 +177,9 @@ class UserModel extends RelationModel {
             $this->error = '参数错误！';
             return false;
         }
-
-        //更新用户信息
-        $data1 = $this->create($data);
-        
-        // print_r($data) ;exit;
         // print_r($data);exit;
-        if ($data1) {
-            return $this->save();
-        }
-        return false;
-    }
-
-    /**
-     * 验证用户密码
-     * @param int $uid 用户id
-     * @param string $password_in 密码
-     * @return true 验证成功，false 验证失败
-     * @author huajie <banhuajie@163.com>
-     */
-    public function verifyUser($uid, $password) {
-        $upassword = $this->getFieldById($uid, 'password');
-        if (md5($password) === $upassword) {
-            return true;
-        }
-        return false;
+        //更新用户信息   
+        return $this->where('id=' . $data['id'])->setField($data[0]);
     }
 
 }

@@ -1,9 +1,0 @@
-[ 2015-12-04T09:58:40+08:00 ] ::1 /thinkphp/install.php
-INFO: [ app_init ] --START--
-INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
-INFO: [ app_init ] --END-- [ RunTime:0.000544s ]
-INFO: [ app_begin ] --START--
-INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000633s ]
-INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
-ERR: 无法加载控制器:Index
-

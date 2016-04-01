@@ -12,7 +12,7 @@ class UserController extends AdminBaseController {
         if (IS_POST) {
             $user = D("User")->verifyUsers(I('post.username'), I('post.password'));
 
-            if (is_array($user)) {
+            if (!is_array($user)) {
                 session("admininfo", $user);
                 $this->success('登陆成功页面跳转中...', U('Index/index'), 3);
             } else {
@@ -35,7 +35,21 @@ class UserController extends AdminBaseController {
         $usercount = D("User")->count("id");
         $this->assign("userlist", $userlist);
 
-        $pages = new Page($usercount, 5);
+        $pages = new Page($usercount, 2);
+        $this->assign("pages", $pages->show());
+        //print_r($pages . $usercount);
+        $this->display();
+    }
+
+    public function searchuser() {
+        
+        $nowpage = I("get.p");
+        $where['username']=I("post.name");
+        print_r($where);
+        $userlist = D("User")->userlist($nowpage,$where);
+        $usercount = D("User")->count("id");
+        $this->assign("userlist", $userlist);
+        $pages = new Page($usercount, 2);
         $this->assign("pages", $pages->show());
         //print_r($pages . $usercount);
         $this->display();
@@ -53,7 +67,7 @@ class UserController extends AdminBaseController {
         }
     }
 
-    public function adduser($username = '', $password = '', $email = '',$rolename='') {
+    public function adduser($username = '', $password = '', $email = '', $rolename = '') {
 
         if (IS_POST) { //注册用户
             /* 调用注册接口注册用户 */
@@ -78,7 +92,7 @@ class UserController extends AdminBaseController {
         }
     }
 
-    public function editer($username = '', $password = '', $email = '',$rolename ='') {
+    public function editer($username = '', $password = '', $email = '', $rolename = '') {
 
         $User = D("User");
         if (IS_POST) { //修改用户
@@ -88,9 +102,9 @@ class UserController extends AdminBaseController {
             $data['id'] = I('get.id');
             $data['username'] = I("post.username");
             $data['rolename'] = I("post.rolename");
-            I("post.password") != "" ? $data['password'] = md5(I("post.password")) : "";
+            // I("post.password") != "" ? $data['password'] = md5(I("post.password")) : "";
+
             $data['email'] = I("post.email");
-            $data['update_time'] = date("Y-m-d H:i:s", time());
 
             $uid = $User->updateUserFields($data);
 
@@ -102,6 +116,7 @@ class UserController extends AdminBaseController {
             }
         } else { //显示注册表单
             $userinfo = $User->getuserinfo(I('get.id'));
+            //print_r(I('get.id'));exit;
             $this->assign('userinfo', $userinfo);
             $where = array('status' => "on");
             $rolelist = M('role')->where($where)->select();
@@ -193,7 +208,7 @@ class UserController extends AdminBaseController {
      * 角色列表
      */
     public function rolelist() {
-        
+
         $nowpage = I("get.p");
         $where = array('status' => "on");
         $rolecount = D("Role")->count("id");
@@ -201,7 +216,7 @@ class UserController extends AdminBaseController {
 
         $pages = new Page($rolecount, 4);
         $this->assign("pages", $pages->show());
-        $rolelist = M('role')->where($where)->page($nowpage,$pages->listRows)->select();
+        $rolelist = M('role')->where($where)->page($nowpage, $pages->listRows)->select();
         $this->assign('rolelist', $rolelist);
         $this->display();
     }

@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="container">
-                  <script type="text/javascript">
+                    <script type="text/javascript">
             $(function () {
                 $('ul.nav > li').click(function (e) {
                     //e.preventDefault();
@@ -151,57 +151,57 @@
         </div>
     </div>-->
 
-            <div class="col-md-2">
-                <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
-                    <li class="active">
-                        <a href="#">
-                            <i class="glyphicon glyphicon-th-large"></i>
-                            首页 		
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-cog"></i>
-                            系统管理
-                               <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                        </a>
-                        <ul id="systemSetting" class="nav nav-list collapse  secondmenu "  style="height: 0px;">
-                            <li  <?php if( ACTION_NAME!= 'management' ): ?>class="active" <?php else: ?>  class=""<?php endif; ?> ><a  href="<?php echo U('User/management');?>" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>  菜单管理</a></li>
-                            <li><a  href="<?php echo U('User/rolelist');?>" ><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>
-                            <li><a  href="<?php echo U('User/changepassword');?>" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
-                            <li><a href="<?php echo U('Actionlog/loglist');?>"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
-                        </ul>
-                    </li>
+<div class="col-md-2">
+    <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+        <li class="active">
+            <a href="#">
+                <i class="glyphicon glyphicon-th-large"></i>
+                首页 		
+            </a>
+        </li>
+        <li class="">
+            <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+                <i class="glyphicon glyphicon-cog"></i>
+                系统管理
+                <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul id="systemSetting" class="nav nav-list collapse  secondmenu "  style="height: 0px;">
+                <li  <?php if( ACTION_NAME!= 'management' ): ?>class="active" <?php else: ?>  class=""<?php endif; ?> ><a  href="<?php echo U('User/management');?>" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+        <li><a  href="<?php echo U('User/rolelist');?>" ><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>
+        <li><a  href="<?php echo U('User/changepassword');?>" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
+            <li><a href="<?php echo U('students/smanagement');?>"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
+    <li><a href="<?php echo U('students/adduser');?>"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
+    </ul>
+</li>
 
-                    <li class="">
-                        <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-cog "></i>
-                            活动管理
-							 <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                        </a>
-                        <ul id="disSetting" class="nav nav-list secondmenu collapse">
-                            <li><a href="<?php echo U('Activity/index');?>"><i class="glyphicon glyphicon-th-list"></i>活动列表</a></li>
-                        </ul>
-                    </li>
+<li class="">
+    <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
+        <i class="glyphicon glyphicon-cog "></i>
+        活动管理
+        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+    </a>
+    <ul id="disSetting" class="nav nav-list secondmenu collapse">
+        <li><a href="<?php echo U('Activity/index');?>"><i class="glyphicon glyphicon-th-list"></i>活动列表</a></li>
+    </ul>
+</li>
 
 
 
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-calendar"></i>
-                            图表统计
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-fire"></i>
-                            关于系统
-                        </a>
-                    </li>
+<li>
+    <a href="#">
+        <i class="glyphicon glyphicon-calendar"></i>
+        图表统计
+    </a>
+</li>
+<li>
+    <a href="#">
+        <i class="glyphicon glyphicon-fire"></i>
+        关于系统
+    </a>
+</li>
 
-                </ul>
-            </div>
+</ul>
+</div>
 
 
                         <div class="col-md-10 panel panel-default" >
@@ -209,6 +209,23 @@
                                 <table class="table">
                                     <caption>基本用户信息<a href="<?php echo U('User/adduser');?>">新增用户</a> </caption>
                                     <thead>
+                                        <tr> <form action="<?php echo U('User/searchuser');?>" method="post">
+                                                <h3>用户查找
+                                                </h3>
+                                                <div class="form-group">
+                                                    <label for="lastname" class="col-sm-2 control-label">用户名</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="lastname" 
+                                                               placeholder="请输用户名" name="name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                        <button type="submit" class="btn btn-default">确 认</button>
+                                                    </div>
+                                                </div>
+                                            </form></tr>
                                         <tr>
                                             <th>用户Id</th>
                                             <th>名称</th>

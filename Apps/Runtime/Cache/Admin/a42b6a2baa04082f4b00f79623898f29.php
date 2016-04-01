@@ -2,14 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>用户编辑</title>
+        <title>标准网页</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/Exhibition/Public/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 <link href="/Exhibition/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="/Exhibition/Public/css/commcss.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="/Exhibition/Public/js/jquery-2.2.0.js"></script>
 <script type="text/javascript" src="/Exhibition/Public/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript">
+
+    </head>
+    <body>
+        <div class="container">
+                    <script type="text/javascript">
             $(function () {
                 $('ul.nav > li').click(function (e) {
                     //e.preventDefault();
@@ -92,10 +96,7 @@
 
             .pagination ul li.current a{color: #f00 ;font-weight: bold; background: #ddd}
         </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
+<div class="row">
                 <div class="col-xs-10 " >
                     <nav class="navbar navbar-default" role="navigation">
                         <div class="navbar-header">
@@ -151,130 +152,140 @@
         </div>
     </div>-->
 
-            <div class="col-md-2">
-                <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
-                    <li class="active">
-                        <a href="#">
-                            <i class="glyphicon glyphicon-th-large"></i>
-                            首页 		
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-cog"></i>
-                            系统管理
-                               <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                        </a>
-                        <ul id="systemSetting" class="nav nav-list collapse  secondmenu "  style="height: 0px;">
-                            <li  <?php if( ACTION_NAME!= 'management' ): ?>class="active" <?php else: ?>  class=""<?php endif; ?> ><a  href="<?php echo U('User/management');?>" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>  菜单管理</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>
-                            <li><a  href="<?php echo U('User/changepassword');?>" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-credit-card"></i>
-                            物料管理		
-                        </a>
-                    </li>
+<div class="col-md-2">
+    <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+        <li class="active">
+            <a href="#">
+                <i class="glyphicon glyphicon-th-large"></i>
+                首页 		
+            </a>
+        </li>
+        <li class="">
+            <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+                <i class="glyphicon glyphicon-cog"></i>
+                系统管理
+                <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul id="systemSetting" class="nav nav-list collapse  secondmenu "  style="height: 0px;">
+                <li  <?php if( ACTION_NAME!= 'management' ): ?>class="active" <?php else: ?>  class=""<?php endif; ?> ><a  href="<?php echo U('User/management');?>" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+        <li><a  href="<?php echo U('User/rolelist');?>" ><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>
+        <li><a  href="<?php echo U('User/changepassword');?>" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
+            <li><a href="<?php echo U('students/smanagement');?>"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
+    <li><a href="<?php echo U('students/adduser');?>"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
+    </ul>
+</li>
 
-                    <li>
-                        <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-globe "></i>
-                            分发配置
-							 <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                        </a>
-                        <ul id="disSetting" class="nav nav-list secondmenu collapse">
-                            <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>&nbsp;分发包配置</a></li>
-                        </ul>
-                    </li>
+<li class="">
+    <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
+        <i class="glyphicon glyphicon-cog "></i>
+        活动管理
+        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+    </a>
+    <ul id="disSetting" class="nav nav-list secondmenu collapse">
+        <li><a href="<?php echo U('Activity/index');?>"><i class="glyphicon glyphicon-th-list"></i>活动列表</a></li>
+    </ul>
+</li>
 
 
 
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-calendar"></i>
-                            图表统计
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-fire"></i>
-                            关于系统
-                        </a>
-                    </li>
+<li>
+    <a href="#">
+        <i class="glyphicon glyphicon-calendar"></i>
+        图表统计
+    </a>
+</li>
+<li>
+    <a href="#">
+        <i class="glyphicon glyphicon-fire"></i>
+        关于系统
+    </a>
+</li>
 
-                </ul>
-            </div>
+</ul>
+</div>
 
 
                         <div class="col-md-10 panel panel-default" >
                             <div class="panel-body">
-                                <h1>用户管理
-                                    <small>修改用户</small>
-                                </h1>
-                                <form class="form-horizontal" role="form" action="/Exhibition/admin.php?m=Admin&c=User&a=changePassword" method="post">
-                                    <div class="form-group">
-                                        <label for="firstname" class="col-sm-2 control-label">原始密码</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="firstname" 
-                                                   placeholder="请输入原始密码" name="password"  value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastname" class="col-sm-2 control-label">新密码</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="lastname" 
-                                                   placeholder="请输新密码" name="newpassword">
-                                        </div>
-                                    </div>
+                                <table class="table">
+                                    <caption>基本用户信息<a href="<?php echo U('Students/adduser');?>">新增客户</a></caption>
+                                    <thead>
+                                        <tr>
+                                            <th>客户id</th>
+                                            <th>姓名</th>
+                                            <th>年龄</th>
+                                            <th>身份证号</th>
+                                            <th>电话</th>
+                                            <th>邮箱</th>
+                                            <th>推荐人</th>
+                                            <th>备注</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if(is_array($userlist)): foreach($userlist as $key=>$vo): if($vo['id'] == 1 ): ?><tr>
+                                                    <td><?php echo ($vo["id"]); ?></td>
+                                                    <td><?php echo ($vo["name"]); ?></td>
+                                                    <td><?php echo ($vo["ages"]); ?></td>
+                                                    <td><?php echo ($vo["card_id"]); ?></td>
+                                                    <td><?php echo ($vo["tel"]); ?></td>
+                                                    <td><?php echo ($vo["email"]); ?></td>
+                                                    <td><?php echo ($vo["receiver"]); ?></td>
+                                                    <td><?php echo ($vo["comment"]); ?></td>
+                                                    <td>编辑   |  删除</td>
+                                                </tr> 
+                                                <?php else: ?>                                        <tr>
+                                                    <td><?php echo ($vo["id"]); ?></td>
+                                                    <td><?php echo ($vo["name"]); ?></td>
+                                                    <td><?php echo ($vo["ages"]); ?></td>
+                                                    <td><?php echo ($vo["card_id"]); ?></td>
+                                                    <td><?php echo ($vo["tel"]); ?></td>
+                                                    <td><?php echo ($vo["email"]); ?></td>
+                                                    <td><?php echo ($vo["receiver"]); ?></td>
+                                                    <td><?php echo ($vo["comment"]); ?></td>
+                                                    <td><?php if($vo['receipt'] == 0 ): ?><a   href="<?php echo U('Students/receipt',array('id'=>$vo['id']));?>">确认收款</a> <?php else: ?><span style="color:red;">已经收款</span><?php endif; ?>  | <a href="<?php echo U('Students/editer',array('id'=>$vo['id']));?>">编辑</a>   |  <a href="<?php echo U('Students/deleteuser',array('id'=>$vo['id']));?>">删除</a></td>
+                                                </tr><?php endif; endforeach; endif; ?>
 
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-default">确 认</button>
-                                </div>
-                            </div>
-                            </form>
+                                    </tbody>
+                                </table>
 
+                                <div class="pagination" ><?php echo ($pages); ?></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>   
+                </div>   
 
-        </div>
-
-
-        <h1 class="text-center" >Hello, world!</h1>
-        <div class="container">
-            <div class="jumbotron">
-                <h1>我的第一个 Bootstrap 页面</h1>
-                <p>重置窗口大小，查看响应式效果！</p> 
             </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>学的不仅是技术，更是梦想！</p>
-                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+
+
+            <h1 class="text-center" >Hello, world!</h1>
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>我的第一个 Bootstrap 页面</h1>
+                    <p>重置窗口大小，查看响应式效果！</p> 
                 </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>学的不仅是技术，更是梦想！</p>
-                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3> 
-                    <p>学的不仅是技术，更是梦想！</p>
-                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Column 1</h3>
+                        <p>学的不仅是技术，更是梦想！</p>
+                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Column 2</h3>
+                        <p>学的不仅是技术，更是梦想！</p>
+                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Column 3</h3> 
+                        <p>学的不仅是技术，更是梦想！</p>
+                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
 
-        
+            
     <!-- 底部
     ================================================== -->
       <div class="container text-center">
