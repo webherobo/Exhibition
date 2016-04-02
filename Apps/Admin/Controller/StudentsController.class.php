@@ -8,15 +8,15 @@ use Think\Page;
 class StudentsController extends AdminBaseController {
 
     public function smanagement() {
-
         $nowpage = I("get.p");
+        $nowpage = isset($nowpage) ? $nowpage : 1;
         $userlist = D("Students")->userlist($nowpage);
         $usercount = D("Students")->count("id");
         $this->assign("userlist", $userlist);
 
         $pages = new Page($usercount, 6);
         $this->assign("pages", $pages->show());
-        //print_r($pages . $usercount);
+        //print_r( $pages->show() . $usercount);
         $this->display();
     }
 
@@ -50,12 +50,55 @@ class StudentsController extends AdminBaseController {
         }
     }
 
-    public function receipt($id) {
+    public function searchuser() {
+
+
+        if (IS_POST) {
+            $where[I("post.type")] = trim(I("post.searchvalue"));
+            if (I("post.searchvalue") != "") {
+                $usercount = D("Students")->where($map)->count(); //查询数据条数
+            } else {
+                $this->error("参数不能为空！");
+            }
+            $usercount = D("Students")->where($where)->count(); //查询数据条数
+            $pages = new Page($usercount, 3, $where);
+
+            $userlist = D("Students")->where($where)->page('1,' . $pages->listRows)->select();
+
+            $this->assign("userlist", $userlist);
+            $this->assign("pages", $pages->show());
+        } else {
+            isset($_GET['name']) ? $map['name'] = trim($_GET['name']) : "";
+            isset($_GET['receiver']) ? $map['receiver'] = trim($_GET['receiver']) : "";
+            if ($map != "") {
+                $usercount = D("Students")->where($map)->count(); //查询数据条数
+            } else {
+                $this->error("参数错误！");
+            }
+            $pages = new Page($usercount, 3, $map);
+
+            $userlist = D("Students")->where($map)->page($pages->nowPage . ',' . $pages->listRows)->select();
+
+            $this->assign("userlist", $userlist);
+            $this->assign("pages", $pages->show());
+        }
+
+
+        //print_r($pages . $usercount);
+        $this->display();
+    }
+
+    public function receipt($id, $receipt) {
         $condition = array('id' => $id);
-        $data = array('receipt' => 1);
+        if ($receipt) {
+            $data = array('receipt' => 0);
+        } else {
+            $data = array('receipt' => 1);
+        }
+
         $result = M("Students")->where($condition)->setField($data);
-        if ($result != false) {
-            return "修改成功";
+        // print_r($result);exit;
+        if ($result !== false) {
             $this->success('修改成功，页面跳转中...', U('smanagement'), 3);
         } else {
             $this->error('用户修改失败！');
@@ -69,11 +112,11 @@ class StudentsController extends AdminBaseController {
 
             /* 调用用户修改接口 */
 
-            $data['id'] = I('get.id');
-            $data[] = I("post.");
 
+            $data = I("post.");
+            $data['id'] = I('get.id');
             $uid = $User->updateUserFields($data);
-            //print_r($uid);exit;
+
             if ($uid !== false) { //注册成功
                 //TODO: 发送验证邮件
                 $this->success('修改成功！', U('smanagement'));

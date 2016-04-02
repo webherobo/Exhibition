@@ -39,7 +39,7 @@ class StudentsModel extends RelationModel {
     protected $_auto = array(
         array('receipt', '0'),
         array('create_time', 'dateftime', 1, 'callback'),
-        array('update_time', 'dateftime', 1, 'callback'),
+        array('update_time', 'dateftime', 3, 'callback'),
     );
 
     /**
@@ -177,9 +177,18 @@ class StudentsModel extends RelationModel {
             $this->error = '参数错误！';
             return false;
         }
+                //更新用户信息
+        $data1 = $this->create($data);
+        // print_r($data) ;exit;
+        // print_r($data);exit;
+        if ($data1) {
+           return  $this->save();
+
+        }
+        return false;
         // print_r($data);exit;
         //更新用户信息   
-        return $this->where('id=' . $data['id'])->setField($data[0]);
+       // return $this->where('id=' . $data['id'])->setField($data[0]);
     }
 
 }

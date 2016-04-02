@@ -207,6 +207,22 @@
 
                         <div class="col-md-10 panel panel-default" >
                             <div class="panel-body">
+                                <div style="padding: 100px 100px 10px;">
+                                    <form role="form"  action="<?php echo U('Students/searchuser');?>" method="post"  class="form-inline">
+                                        <div class="form-group container-fluid" >
+                                            <label for="name">搜索客户</label>
+                                            <select class="form-control" name="type">
+                                                <option value="name">客户名字</option>
+                                                <option value="receiver">推荐人</option>
+
+                                            </select> 
+                                            <input type="text" class="form-control" 
+                                                   placeholder="请输内容" name="searchvalue">
+
+                                                <button type="submit" class="btn btn-primary">查询按钮</button>
+                                        </div>
+                                    </form>
+                                </div>
                                 <table class="table">
                                     <caption>基本用户信息<a href="<?php echo U('Students/adduser');?>">新增客户</a></caption>
                                     <thead>
@@ -243,7 +259,7 @@
                                                     <td><?php echo ($vo["email"]); ?></td>
                                                     <td><?php echo ($vo["receiver"]); ?></td>
                                                     <td><?php echo ($vo["comment"]); ?></td>
-                                                    <td><?php if($vo['receipt'] == 0 ): ?><a   href="<?php echo U('Students/receipt',array('id'=>$vo['id']));?>">确认收款</a> <?php else: ?><span style="color:red;">已经收款</span><?php endif; ?>  | <a href="<?php echo U('Students/editer',array('id'=>$vo['id']));?>">编辑</a>   |  <a href="<?php echo U('Students/deleteuser',array('id'=>$vo['id']));?>">删除</a></td>
+                                                    <td><?php if($vo['receipt'] == 0 ): ?><a  style=" text-decoration: none;" href="<?php echo U('Students/receipt',array('id'=>$vo['id'],'receipt'=>$vo['receipt']));?>">确认收款</a> <?php else: ?><a   href="<?php echo U('Students/receipt',array('id'=>$vo['id'],'receipt'=>$vo['receipt']));?>" style=" text-decoration: none;" ><span style="color:red;">已经收款</span> </a><?php endif; ?>  | <a href="<?php echo U('Students/editer',array('id'=>$vo['id']));?>">编辑</a>   |  <a href="<?php echo U('Students/deleteuser',array('id'=>$vo['id']));?>">删除</a></td>
                                                 </tr><?php endif; endforeach; endif; ?>
 
                                     </tbody>
