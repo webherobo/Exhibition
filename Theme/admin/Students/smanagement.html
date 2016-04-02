@@ -18,7 +18,8 @@
                                 <div style="padding: 100px 100px 10px;">
                                     <form role="form"  action="{:U('Students/searchuser')}" method="post"  class="form-inline">
                                         <div class="form-group container-fluid" >
-                                            <label for="name">搜索客户</label>
+                                          <a  class="btn btn-primary" href="{:U('Students/adduser')}">新增客户</a>        <a  class="btn btn-primary"  href="{:U('Students/phpexcelexport')}">数据导出</a>       
+                                          <label for="name">搜索客户</label>
                                             <select class="form-control" name="type">
                                                 <option value="name">客户名字</option>
                                                 <option value="receiver">推荐人</option>
@@ -32,7 +33,7 @@
                                     </form>
                                 </div>
                                 <table class="table">
-                                    <caption>基本用户信息<a href="{:U('Students/adduser')}">新增客户</a></caption>
+                                    <caption>基本用户信息 </caption>
                                     <thead>
                                         <tr>
                                             <th>客户id</th>

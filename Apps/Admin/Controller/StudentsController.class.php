@@ -4,7 +4,7 @@ namespace Admin\Controller;
 
 use Base\Controller\AdminBaseController;
 use Think\Page;
-
+use Think\PHPExcel;
 class StudentsController extends AdminBaseController {
 
     public function smanagement() {
@@ -18,6 +18,16 @@ class StudentsController extends AdminBaseController {
         $this->assign("pages", $pages->show());
         //print_r( $pages->show() . $usercount);
         $this->display();
+    }
+
+    public function phpexcelexport() {
+        
+        $phpexcel=new PHPExcel();
+        
+        $userlist = D("Students")->userlist($nowpage);
+        $this->assign("userlist", $userlist);
+
+        $this->success('数据导出成功跳转中...', U('smanagement'), 3);
     }
 
     public function deleteuser() {
