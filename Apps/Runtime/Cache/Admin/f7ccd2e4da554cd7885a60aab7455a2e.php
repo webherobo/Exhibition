@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>用户新增</title>
+        <title>用户编辑</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/Exhibition/Public/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 <link href="/Exhibition/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -152,104 +152,133 @@
         </div>
     </div>-->
 
-            <div class="col-md-2">
-                <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
-                    <li class="active">
-                        <a href="#">
-                            <i class="glyphicon glyphicon-th-large"></i>
-                            首页 		
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-cog"></i>
-                            系统管理
-                               <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                        </a>
-                        <ul id="systemSetting" class="nav nav-list collapse  secondmenu "  style="height: 0px;">
-                            <li  <?php if( ACTION_NAME!= 'management' ): ?>class="active" <?php else: ?>  class=""<?php endif; ?> ><a  href="<?php echo U('User/management');?>" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>  菜单管理</a></li>
-                            <li><a  href="<?php echo U('User/rolelist');?>" ><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>
-                            <li><a  href="<?php echo U('User/changepassword');?>" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-credit-card"></i>
-                            物料管理		
-                        </a>
-                    </li>
+<div class="col-md-2">
+    <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
+        <li class="active">
+            <a href="#">
+                <i class="glyphicon glyphicon-th-large"></i>
+                首页 		
+            </a>
+        </li>
+        <li class="">
+            <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+                <i class="glyphicon glyphicon-cog"></i>
+                系统管理
+                <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul id="systemSetting" class="nav nav-list collapse  secondmenu "  style="height: 0px;">
+                <li  <?php if( ACTION_NAME!= 'management' ): ?>class="active" <?php else: ?>  class=""<?php endif; ?> ><a  href="<?php echo U('User/management');?>" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+        <li><a  href="<?php echo U('User/rolelist');?>" ><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>
+        <li><a  href="<?php echo U('User/changepassword');?>" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
+            <li><a href="<?php echo U('students/smanagement');?>"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
+    <li><a href="<?php echo U('students/adduser');?>"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
+    </ul>
+</li>
 
-                    <li>
-                        <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-globe "></i>
-                            分发配置
-							 <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-                        </a>
-                        <ul id="disSetting" class="nav nav-list secondmenu collapse">
-                            <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>&nbsp;分发包配置</a></li>
-                        </ul>
-                    </li>
+<li class="">
+    <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
+        <i class="glyphicon glyphicon-cog "></i>
+        活动管理
+        <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+    </a>
+    <ul id="disSetting" class="nav nav-list secondmenu collapse">
+        <li><a href="<?php echo U('Activity/index');?>"><i class="glyphicon glyphicon-th-list"></i>活动列表</a></li>
+    </ul>
+</li>
 
 
 
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-calendar"></i>
-                            图表统计
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-fire"></i>
-                            关于系统
-                        </a>
-                    </li>
+<li>
+    <a href="#">
+        <i class="glyphicon glyphicon-calendar"></i>
+        图表统计
+    </a>
+</li>
+<li>
+    <a href="#">
+        <i class="glyphicon glyphicon-fire"></i>
+        关于系统
+    </a>
+</li>
 
-                </ul>
-            </div>
+</ul>
+</div>
 
 
                         <div class="col-md-10 panel panel-default" >
                             <div class="panel-body">
-                                <h1>用户管理
-                                    <small>新增用户</small>
+                                <h1>客户管理
+                                    <small>修改客户信息</small>
                                 </h1>
-                                <form class="form-horizontal" role="form" action="/Exhibition/admin.php?m=Admin&c=User&a=adduser" method="post">
+                                <form class="form-horizontal" role="form" action="/Exhibition/admin.php?m=Admin&c=students&a=editer" method="post">
                                     <div class="form-group">
                                         <label for="firstname" class="col-sm-2 control-label">名字</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="firstname" 
-                                                   placeholder="请输入名字" name="username" >
+                                                   placeholder="请输入名字" name="name" value="<?php echo ($userinfo['name']); ?>" >
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name" class="col-sm-2 control-label" >角色列表</label>
-                                        <div  class="col-sm-10">
-                                            <select class="form-control"  name="rolename">
-                                                <?php if(is_array($rolelist)): foreach($rolelist as $key=>$vo): ?><option value="<?php echo ($vo['name']); ?>"><?php echo ($vo['name']); ?></option><?php endforeach; endif; ?>
-                                            </select>
+                                        <label for="firstname" class="col-sm-2 control-label">年龄</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="firstname" 
+                                                   placeholder="请输入年龄" name="ages" value="<?php echo ($userinfo['ages']); ?>" >
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="lastname" class="col-sm-2 control-label">密码</label>
+                                        <label for="firstname" class="col-sm-2 control-label">身份证号</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="firstname" 
+                                                   placeholder="请输入身份证" name="card_id" value="<?php echo ($userinfo['card_id']); ?>" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastname" class="col-sm-2 control-label">电话</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="lastname" 
-                                                   placeholder="请输密码" name="password">
+                                                   placeholder="请输电话" name="tel" value="<?php echo ($userinfo['tel']); ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="lastname" class="col-sm-2 control-label">邮箱</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="lastname" 
-                                                   placeholder="请输邮箱" name="email">
+                                                   placeholder="请输邮箱" name="email" value="<?php echo ($userinfo['email']); ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastname" class="col-sm-2 control-label">推荐人</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="lastname" 
+                                                   placeholder="请输推荐人" name="receiver" value="<?php echo ($userinfo['receiver']); ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-2 control-label" >付款状态</label>
+                                        <div  class="col-sm-10">
+                                            <select class="form-control"  name="receipt">
+                                               
+                                                    <?php if( $userinfo['receipt'] ==1 ): ?><option selected="selected" value="<?php echo ($userinfo['receipt']); ?>">已付款</option>
+                                                        <option  value="0">未付款</option>
+                                                        <?php else: ?>
+                                                        <option  value="1">付款</option>
+                                                        <option  selected="selected" value="<?php echo ($userinfo['receipt']); ?>">未付款</option><?php endif; ?>
+
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastname" class="col-sm-2 control-label">备注</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="lastname" 
+                                                   placeholder="请输备注" name="comment" value="<?php echo ($userinfo['comment']); ?>">
                                         </div>
                                     </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-default">新 增</button>
+                                    <button type="submit" class="btn btn-default">确 认</button>
                                 </div>
                             </div>
                             </form>
