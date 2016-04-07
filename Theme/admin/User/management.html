@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>标准网页</title>
+        <include file="Public/head"/>
+    </head>
+    <body>
+        <div class="container">
+            <include file="Public/header"/>
+            <div class="row">        
+                <div class="container-fluid">
+                    <div class="row">  
+                        <include file="Public/left"/>
+                        <div class="col-md-10 panel panel-default" >
+                            <div class="panel-body">
+                                <table class="table">
+                                    <caption>基本用户信息<a href="{:U('User/adduser')}">新增用户</a> </caption>
+                                    <thead>
+                                        <tr> <form action="{:U('User/searchuser')}" method="post">
+                                                <h3>用户查找
+                                                </h3>
+                                                <div class="form-group">
+                                                    <label for="lastname" class="col-sm-2 control-label">用户名</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="lastname" 
+                                                               placeholder="请输用户名" name="name">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                        <button type="submit" class="btn btn-default">确 认</button>
+                                                    </div>
+                                                </div>
+                                            </form></tr>
+                                        <tr>
+                                            <th>用户Id</th>
+                                            <th>名称</th>
+                                            <th>角色名称</th>
+                                            <th>邮箱</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <foreach name="userlist" item="vo" >
+                                            <if condition="$vo['id'] == 1 ">  
+                                                <tr>
+                                                    <td>{$vo.id}</td>
+                                                    <td>{$vo.username}</td>
+                                                    <td>{$vo.rolename}</td>
+                                                    <td>{$vo.email}</td>
+                                                    <td>编辑   |  删除</td>
+                                                </tr> 
+                                                <else />                                        <tr>
+                                                    <td>{$vo.id}</td>
+                                                    <td>{$vo.username}</td>
+                                                    <td>{$vo.rolename}</td>
+                                                    <td>{$vo.email}</td>
+                                                    <td><a href="{:U('User/editer',array('id'=>$vo['id']))}">编辑</a>   |  <a href="{:U('User/deleteuser',array('id'=>$vo['id']))}">删除</a></td>
+                                                </tr>
+                                            </if>
+
+                                        </foreach>
+
+                                    </tbody>
+                                </table>
+
+                                <div class="pagination" >{$pages}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+
+            </div>
+
+
+            <h1 class="text-center" >Hello, world!</h1>
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>我的第一个 Bootstrap 页面</h1>
+                    <p>重置窗口大小，查看响应式效果！</p> 
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Column 1</h3>
+                        <p>学的不仅是技术，更是梦想！</p>
+                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Column 2</h3>
+                        <p>学的不仅是技术，更是梦想！</p>
+                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Column 3</h3> 
+                        <p>学的不仅是技术，更是梦想！</p>
+                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <include file="Public/footer"/>
+    </body>
+</html> 

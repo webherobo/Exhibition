@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>角色列表</title>
+        <include file="Public/head"/>
+    </head>
+    <body>
+        <div class="container">
+            <include file="Public/header"/>
+            <div class="row">        
+                <div class="container-fluid">
+                    <div class="row">  
+                        <include file="Public/left"/>
+                        <div class="col-md-10 panel panel-default" >
+                            <div class="panel-body">
+                                <table class="table">
+                                    <caption>角色基本信息<a class="btn btn-primary" href="{:U('User/addrole')}">新增角色</a> </caption>
+                                    <thead>
+                                        <tr>
+                                            <th>角色Id</th>
+                                            <th>组id</th>
+                                            <th>名称</th>
+                                            <th>英文名称</th>
+                                            <th>状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <foreach name="rolelist" item="vo" >
+                                            <tr>
+                                                <td>{$vo.id}</td>
+                                                <td>{$vo.pid}</td>
+                                                <td>{$vo.name}</td>
+                                                <td>{$vo.enname}</td>
+                                                <td>{$vo.status}</td>
+                                                <td><a href="{:U('User/editrole',array('id'=>$vo['id']))}">编辑</a>   |  <a href="{:U('User/deleterole',array('id'=>$vo['id']))}">删除</a></td>
+                                            </tr>
+                                        </foreach>
+
+                                    </tbody>
+                                </table>
+
+                                <div class="pagination" >{$pages}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+
+            </div>
+
+
+            <h1 class="text-center" >Hello, world!</h1>
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>我的第一个 Bootstrap 页面</h1>
+                    <p>重置窗口大小，查看响应式效果！</p> 
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Column 1</h3>
+                        <p>学的不仅是技术，更是梦想！</p>
+                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Column 2</h3>
+                        <p>学的不仅是技术，更是梦想！</p>
+                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Column 3</h3> 
+                        <p>学的不仅是技术，更是梦想！</p>
+                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <include file="Public/footer"/>
+    </body>
+</html> 
