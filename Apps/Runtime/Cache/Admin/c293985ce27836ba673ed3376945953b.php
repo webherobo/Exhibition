@@ -2,13 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>标准网页</title>
+        <title>用户新增</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/Exhibition/Public/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 <link href="/Exhibition/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="/Exhibition/Public/css/commcss.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="/Exhibition/Public/js/jquery-2.2.0.js"></script>
 <script type="text/javascript" src="/Exhibition/Public/bootstrap/js/bootstrap.min.js"></script>
+
     </head>
     <body>
         <div class="container">
@@ -207,90 +208,36 @@
 
                         <div class="col-md-10 panel panel-default" >
                             <div class="panel-body">
-                                <table class="table">
-                                    <caption>基本用户信息<a href="<?php echo U('User/adduser');?>">新增用户</a> </caption>
-                                    <thead>
-                                        <tr> <form action="<?php echo U('User/searchuser');?>" method="post">
-                                                <h3>用户查找
-                                                </h3>
-                                                <div class="form-group">
-                                                    <label for="lastname" class="col-sm-2 control-label">用户名</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="lastname" 
-                                                               placeholder="请输用户名" name="name">
-                                                    </div>
-                                                </div>
+                                <h1>客户管理
+                                    <small>导入客户数据</small>
+                                </h1>
+                                <form class="form-horizontal" role="form" action="/Exhibition/admin.php?m=Admin&c=Students&a=phpexcelimport" method="post" enctype="multipart/form-data" >
+                                    <div class="form-group">
+                                        <label for="firstname" class="col-sm-2 control-label">excel数据文件</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="form-control" id="firstname" 
+                                                   placeholder="请选择文件" name="inputExcel" >
+                                        </div>
+                                    </div>
 
-                                                <div class="form-group">
-                                                    <div class="col-sm-offset-2 col-sm-10">
-                                                        <button type="submit" class="btn btn-default">确 认</button>
-                                                    </div>
-                                                </div>
-                                            </form></tr>
-                                        <tr>
-                                            <th>用户Id</th>
-                                            <th>名称</th>
-                                            <th>角色名称</th>
-                                            <th>邮箱</th>
-                                            <th>操作</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php if(is_array($userlist)): foreach($userlist as $key=>$vo): if($vo['id'] == 1 ): ?><tr>
-                                                    <td><?php echo ($vo["id"]); ?></td>
-                                                    <td><?php echo ($vo["username"]); ?></td>
-                                                    <td><?php echo ($vo["rolename"]); ?></td>
-                                                    <td><?php echo ($vo["email"]); ?></td>
-                                                    <td>编辑   |  删除</td>
-                                                </tr> 
-                                                <?php else: ?>                                        <tr>
-                                                    <td><?php echo ($vo["id"]); ?></td>
-                                                    <td><?php echo ($vo["username"]); ?></td>
-                                                    <td><?php echo ($vo["rolename"]); ?></td>
-                                                    <td><?php echo ($vo["email"]); ?></td>
-                                                    <td><a href="<?php echo U('User/editer',array('id'=>$vo['id']));?>">编辑</a>   |  <a href="<?php echo U('User/deleteuser',array('id'=>$vo['id']));?>">删除</a></td>
-                                                </tr><?php endif; endforeach; endif; ?>
-
-                                    </tbody>
-                                </table>
-
-                                <div class="pagination" ><?php echo ($pages); ?></div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-default">新 增</button>
+                                </div>
+                            </div>
+                            </form>
+
                         </div>
                     </div>
-                </div>   
-
-            </div>
-
-
-            <h1 class="text-center" >Hello, world!</h1>
-            <div class="container">
-                <div class="jumbotron">
-                    <h1>我的第一个 Bootstrap 页面</h1>
-                    <p>重置窗口大小，查看响应式效果！</p> 
                 </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h3>Column 1</h3>
-                        <p>学的不仅是技术，更是梦想！</p>
-                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <h3>Column 2</h3>
-                        <p>学的不仅是技术，更是梦想！</p>
-                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <h3>Column 3</h3> 
-                        <p>学的不仅是技术，更是梦想！</p>
-                        <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                    </div>
-                </div>
-            </div>
+            </div>   
+
+        </div>
 
 
 
-            
+        
     <!-- 底部
     ================================================== -->
       <div class="container text-center">
