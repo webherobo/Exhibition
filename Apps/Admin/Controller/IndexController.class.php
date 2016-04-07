@@ -15,6 +15,14 @@ class IndexController extends AdminBaseController {
         }
     }
 
+    public function aboutus() {
+        //$this->theme('admin')->display('index');
+        $this->display();
+    }
 
+    public function tubiao() {
+        //$this->theme('admin')->display('index');
+        $this->display();
+    }
 
 }

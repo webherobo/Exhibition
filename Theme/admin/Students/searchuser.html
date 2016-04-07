@@ -56,7 +56,7 @@
                                                 <td>{$vo.email}</td>
                                                 <td>{$vo.receiver}</td>
                                                 <td>{$vo.comment}</td>
-                                                <td><if condition="$vo['receipt'] == 0 "> <a   href="{:U('Students/receipt',array('id'=>$vo['id']))}">确认收款</a> <else/><span style="color:red;">已经收款</span> </if>  | <a href="{:U('Students/editer',array('id'=>$vo['id']))}">编辑</a>   |  <a href="{:U('Students/deleteuser',array('id'=>$vo['id']))}">删除</a></td>
+                                                <td><if condition="$vo['receipt'] == 0 "> <a  style=" text-decoration: none;" href="{:U('Students/receipt',array('id'=>$vo['id'],'receipt'=>$vo['receipt']))}">确认收款</a> <else/><a   href="{:U('Students/receipt',array('id'=>$vo['id'],'receipt'=>$vo['receipt']))}" style=" text-decoration: none;" ><span style="color:red;">已经收款</span> </a></if>  | <a href="{:U('Students/editer',array('id'=>$vo['id']))}">编辑</a>   |  <a href="{:U('Students/deleteuser',array('id'=>$vo['id']))}">删除</a></td>
                                             </tr>
 
                                         </foreach>
