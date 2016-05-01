@@ -10,7 +10,7 @@
 <div class="col-md-2">
     <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
         <li class="active">
-            <a href="#">
+            <a href="{:U('Index/index')}">
                 <i class="glyphicon glyphicon-th-large"></i>
                 首页 		
             </a>
@@ -25,8 +25,9 @@
                 <li  <if condition=" $Think.const.ACTION_NAME neq 'management' " > class="active" <else />  class=""</if> ><a  href="{:U('User/management')}" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
         <li><a  href="{:U('User/rolelist')}" ><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>
         <li><a  href="{:U('User/changepassword')}" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
-            <li><a href="{:U('students/smanagement')}"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
-    <li><a href="{:U('students/adduser')}"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
+        <li><a href="{:U('students/smanagement')}"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
+        <li><a href="{:U('students/adduser')}"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
+        <li><a href="{:U('students/phpexcelimport')}"><i class="glyphicon glyphicon-th-list"></i>学生数据导入</a></li>
     </ul>
 </li>
 
@@ -44,13 +45,13 @@
 
 
 <li>
-    <a href="#">
+    <a href="{:U('Index/tubiao')}">
         <i class="glyphicon glyphicon-calendar"></i>
         图表统计
     </a>
 </li>
 <li>
-    <a href="#">
+    <a href="{:U('Index/aboutus')}">
         <i class="glyphicon glyphicon-fire"></i>
         关于系统
     </a>

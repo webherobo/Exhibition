@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>标准网页</title>
+        <include file="Public/head"/>
+        <script src="__PUBLIC__/Chart/Chart.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('ul.nav > li').click(function (e) {
+                    //e.preventDefault();
+                    $('ul.nav > li').removeClass('active');
+                    $(this).addClass('active');
+                });
+                $('#systemSetting').collapse('show');
+                // $('#systemSetting').on('show.bs.collapse', function () {
+                //       alert('嘿，当您展开时会提示本警告');})
+
+            });
+        </script>
+        <script>
+
+            var polarData = [
+                {
+                    value: 300,
+                    color: "#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Red"
+                },
+                {
+                    value: 50,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                },
+                {
+                    value: 100,
+                    color: "#FDB45C",
+                    highlight: "#FFC870",
+                    label: "Yellow"
+                },
+                {
+                    value: 40,
+                    color: "#949FB1",
+                    highlight: "#A8B3C5",
+                    label: "Grey"
+                },
+                {
+                    value: 120,
+                    color: "#4D5360",
+                    highlight: "#616774",
+                    label: "Dark Grey"
+                }
+
+            ];
+
+            window.onload = function () {
+                var ctx = document.getElementById("chart-area").getContext("2d");
+                window.myPolarArea = new Chart(ctx).PolarArea(polarData, {
+                    responsive: true
+                });
+            };
+
+
+
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10 " >
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <a class="navbar-brand"  href="#">CMS管理系统</a>
+                        </div>
+                        <div>
+                            <ul class="nav nav-tabs nav-justified" >
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">SVN</a></li>
+                                <li><a href="#">iOS</a></li>
+                                <li><a href="#">VB.Net</a></li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Java <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Swing</a></li>
+                                        <li><a href="#">jMeter</a></li>
+                                        <li><a href="#">EJB</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">分离的链接</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">PHP</a></li>
+                            </ul>
+                    </nav>
+                </div>
+                <div class="col-xs-2 ">
+                    <div class="btn-group" >
+                        <button type="button" class="btn btn-default dropdown-toggle btn-lg" 
+                                data-toggle="dropdown" ><i class="glyphicon glyphicon-user"></i>
+                            用户管理中心 
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">功能</a></li>
+                            <li><a href="#">另一个功能</a></li>
+                            <li><a href="#">其他</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{:U('User/logout')}">退出</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">        
+                <div class="container-fluid">
+                    <div class="row">  
+                        <include file="Public/left"/>
+                        <div class="col-md-10 panel panel-default" >
+                            <div class="panel-body">
+                                <h1>学的不仅是技术，更是梦想！</h1>
+                                <h3>再牛逼的梦想,也抵不住你傻逼似的坚持！</h3>
+                                <div id="canvas-holder" style="width:30%">
+                                    <canvas id="chart-area" width="300" height="300"/>
+                                </div>
+                                <div class="alert alert-success">成功！很好地完成了提交。</div>
+                                <div class="alert alert-info">信息！请注意这个信息。</div>
+                                <div class="alert alert-warning">警告！请不要提交。</div>
+                                <div class="alert alert-danger">错误！请进行一些更改。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+
+            </div>
+            <include file="Public/footer"/>
+    </body>
+</html> 

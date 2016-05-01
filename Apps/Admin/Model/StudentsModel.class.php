@@ -22,8 +22,8 @@ class StudentsModel extends RelationModel {
     //protected $fields = array('id', 'name', 'ages', 'email', 'card_id','tel','comment','receiver', 'update_time', 'create_time');
     protected $_validate = array(
         /* 验证用户名 */
-        array('name', '', '帐号名称已经存在！', 0, 'unique', 1), // 在新增的时候验证name字段是否唯一
-        //array('tel', '', -3, self::EXISTS_VALIDATE, 'unique'), //手机被占用
+        //array('name', '', '帐号名称已经存在！', 0, 'unique', 1), // 在新增的时候验证name字段是否唯一
+        array('card_id', '', -3, self::EXISTS_VALIDATE, 'unique'), //手机被占用
         array('card_id', 'require', '身份证号必须'),
         array('ages', 'require', '年龄必须'),
         array('receiver', 'require', '推荐人必须'),
@@ -39,7 +39,7 @@ class StudentsModel extends RelationModel {
     protected $_auto = array(
         array('receipt', '0'),
         array('create_time', 'dateftime', 1, 'callback'),
-        array('update_time', 'dateftime', 1, 'callback'),
+        array('update_time', 'dateftime', 3, 'callback'),
     );
 
     /**
@@ -177,9 +177,18 @@ class StudentsModel extends RelationModel {
             $this->error = '参数错误！';
             return false;
         }
+                //更新用户信息
+        $data1 = $this->create($data);
+        // print_r($data) ;exit;
+        // print_r($data);exit;
+        if ($data1) {
+           return  $this->save();
+
+        }
+        return false;
         // print_r($data);exit;
         //更新用户信息   
-        return $this->where('id=' . $data['id'])->setField($data[0]);
+       // return $this->where('id=' . $data['id'])->setField($data[0]);
     }
 
 }

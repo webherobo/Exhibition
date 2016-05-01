@@ -154,7 +154,7 @@
 <div class="col-md-2">
     <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
         <li class="active">
-            <a href="#">
+            <a href="<?php echo U('Index/index');?>">
                 <i class="glyphicon glyphicon-th-large"></i>
                 首页 		
             </a>
@@ -167,25 +167,14 @@
             </a>
             <ul id="systemSetting" class="nav nav-list collapse  secondmenu "  style="height: 0px;">
                 <li  <?php if( ACTION_NAME!= 'management' ): ?>class="active" <?php else: ?>  class=""<?php endif; ?> ><a  href="<?php echo U('User/management');?>" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
-        <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>  菜单管理</a></li>
         <li><a  href="<?php echo U('User/rolelist');?>" ><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>
         <li><a  href="<?php echo U('User/changepassword');?>" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
-        <li><a href="<?php echo U('Actionlog/loglist');?>"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>
+        <li><a href="<?php echo U('students/smanagement');?>"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
+        <li><a href="<?php echo U('students/adduser');?>"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
+        <li><a href="<?php echo U('students/phpexcelimport');?>"><i class="glyphicon glyphicon-th-list"></i>学生数据导入</a></li>
     </ul>
 </li>
-<li <?php if( ACTION_NAME!= 'smanagement' ): ?>class="active" <?php else: ?>  class=""<?php endif; ?> >
-<a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
-    <i class="glyphicon glyphicon-cog "></i>
-    学生管理
-    <span class="pull-right glyphicon glyphicon-chevron-down"></span>
-</a>
-<ul id="disSetting" class="nav nav-list secondmenu collapse">
-    <li><a href="<?php echo U('students/smanagement');?>"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
-    <li><a href="<?php echo U('students/adduser');?>"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
-    <li><a href="<?php echo U('students/editer');?>"><i class="glyphicon glyphicon-th-list"></i>学生修改</a></li>
-    <li><a href="<?php echo U('students/deleteuser');?>"><i class="glyphicon glyphicon-th-list"></i>学生删除</a></li>
-</ul>
-</li>
+
 <li class="">
     <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
         <i class="glyphicon glyphicon-cog "></i>
@@ -200,13 +189,13 @@
 
 
 <li>
-    <a href="#">
+    <a href="<?php echo U('Index/tubiao');?>">
         <i class="glyphicon glyphicon-calendar"></i>
         图表统计
     </a>
 </li>
 <li>
-    <a href="#">
+    <a href="<?php echo U('Index/aboutus');?>">
         <i class="glyphicon glyphicon-fire"></i>
         关于系统
     </a>
@@ -251,33 +240,6 @@
             </div>   
 
         </div>
-
-
-        <h1 class="text-center" >Hello, world!</h1>
-        <div class="container">
-            <div class="jumbotron">
-                <h1>我的第一个 Bootstrap 页面</h1>
-                <p>重置窗口大小，查看响应式效果！</p> 
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>学的不仅是技术，更是梦想！</p>
-                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>学的不仅是技术，更是梦想！</p>
-                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3> 
-                    <p>学的不仅是技术，更是梦想！</p>
-                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                </div>
-            </div>
-        </div>
-
 
 
         

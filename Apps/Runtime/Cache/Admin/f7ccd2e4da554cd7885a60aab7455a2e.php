@@ -210,7 +210,7 @@
                                 <h1>客户管理
                                     <small>修改客户信息</small>
                                 </h1>
-                                <form class="form-horizontal" role="form" action="/Exhibition/admin.php?m=Admin&c=students&a=editer" method="post">
+                                <form class="form-horizontal" role="form" action="/Exhibition/admin.php?m=Admin&c=Students&a=editer&id=3" method="post">
                                     <div class="form-group">
                                         <label for="firstname" class="col-sm-2 control-label">名字</label>
                                         <div class="col-sm-10">
