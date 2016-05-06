@@ -74,10 +74,13 @@ class StudentsController extends AdminBaseController {
                     $data['comment'] = $objPHPExcel->getActiveSheet()->getCell("I" . $i)->getValue();
                     $User = D("Students");
                     $uid = $User->adduser($data);
+                }else{
+                   $this->success('数据导入成功跳转中...', U('phpexcelimport'), 3); 
                 }
+                
             }
 
-            $this->success('数据导入成功跳转中...', U('phpexcelimport'), 3);
+            
         } else {
             $this->display();
         }
@@ -282,7 +285,7 @@ class StudentsController extends AdminBaseController {
             if (I("post.searchvalue") != "") {
                 $usercount = D("Students")->where($map)->count(); //查询数据条数
             } else {
-                $this->error("参数不能为空！");
+                $this->error("参数不能为空！",U('smanagement'),5);
             }
             $usercount = D("Students")->where($where)->count(); //查询数据条数
             $pages = new Page($usercount, 3, $where);

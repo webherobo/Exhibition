@@ -171,6 +171,7 @@
         <li><a  href="<?php echo U('User/changepassword');?>" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
             <li><a href="<?php echo U('students/smanagement');?>"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
     <li><a href="<?php echo U('students/adduser');?>"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
+    <li><a href="<?php echo U('students/phpexcelimport');?>"><i class="glyphicon glyphicon-th-list"></i>学生数据导入</a></li>
     </ul>
 </li>
 
@@ -247,7 +248,7 @@
                                                 <td><?php echo ($vo["email"]); ?></td>
                                                 <td><?php echo ($vo["receiver"]); ?></td>
                                                 <td><?php echo ($vo["comment"]); ?></td>
-                                                <td><?php if($vo['receipt'] == 0 ): ?><a   href="<?php echo U('Students/receipt',array('id'=>$vo['id']));?>">确认收款</a> <?php else: ?><span style="color:red;">已经收款</span><?php endif; ?>  | <a href="<?php echo U('Students/editer',array('id'=>$vo['id']));?>">编辑</a>   |  <a href="<?php echo U('Students/deleteuser',array('id'=>$vo['id']));?>">删除</a></td>
+                                                <td><?php if($vo['receipt'] == 0 ): ?><a  style=" text-decoration: none;" href="<?php echo U('Students/receipt',array('id'=>$vo['id'],'receipt'=>$vo['receipt']));?>">确认收款</a> <?php else: ?><a   href="<?php echo U('Students/receipt',array('id'=>$vo['id'],'receipt'=>$vo['receipt']));?>" style=" text-decoration: none;" ><span style="color:red;">已经收款</span> </a><?php endif; ?>  | <a href="<?php echo U('Students/editer',array('id'=>$vo['id']));?>">编辑</a>   |  <a href="<?php echo U('Students/deleteuser',array('id'=>$vo['id']));?>">删除</a></td>
                                             </tr><?php endforeach; endif; ?>
 
                                     </tbody>

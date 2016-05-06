@@ -100,10 +100,10 @@
                 <div class="col-xs-10 " >
                     <nav class="navbar navbar-default" role="navigation">
                         <div class="navbar-header">
-                            <a class="navbar-brand"  href="#">CMS管理系统</a>
+                            <a class="navbar-brand btn btn-primary"  href="<?php echo U('Index/index');?>">CMS管理系统</a>
                         </div>
                         <div>
-                            <ul class="nav nav-tabs nav-justified" >
+<!--                            <ul class="nav nav-tabs nav-justified" >
                                 <li class="active"><a href="#">Home</a></li>
                                 <li><a href="#">SVN</a></li>
                                 <li><a href="#">iOS</a></li>
@@ -121,7 +121,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="#">PHP</a></li>
-                            </ul>
+                            </ul>-->
                     </nav>
                 </div>
                 <div class="col-xs-2 ">
@@ -155,7 +155,7 @@
 <div class="col-md-2">
     <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
         <li class="active">
-            <a href="#">
+            <a href="<?php echo U('Index/index');?>">
                 <i class="glyphicon glyphicon-th-large"></i>
                 首页 		
             </a>
@@ -170,9 +170,9 @@
                 <li  <?php if( ACTION_NAME!= 'management' ): ?>class="active" <?php else: ?>  class=""<?php endif; ?> ><a  href="<?php echo U('User/management');?>" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
         <li><a  href="<?php echo U('User/rolelist');?>" ><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>
         <li><a  href="<?php echo U('User/changepassword');?>" ><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>
-            <li><a href="<?php echo U('students/smanagement');?>"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
-    <li><a href="<?php echo U('students/adduser');?>"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
-    <li><a href="<?php echo U('students/phpexcelimport');?>"><i class="glyphicon glyphicon-th-list"></i>学生数据导入</a></li>
+        <li><a href="<?php echo U('students/smanagement');?>"><i class="glyphicon glyphicon-th-list"></i>学生列表</a></li>
+        <li><a href="<?php echo U('students/adduser');?>"><i class="glyphicon glyphicon-th-list"></i>学生添加</a></li>
+        <li><a href="<?php echo U('students/phpexcelimport');?>"><i class="glyphicon glyphicon-th-list"></i>学生数据导入</a></li>
     </ul>
 </li>
 
@@ -190,13 +190,13 @@
 
 
 <li>
-    <a href="#">
+    <a href="<?php echo U('Index/tubiao');?>">
         <i class="glyphicon glyphicon-calendar"></i>
         图表统计
     </a>
 </li>
 <li>
-    <a href="#">
+    <a href="<?php echo U('Index/aboutus');?>">
         <i class="glyphicon glyphicon-fire"></i>
         关于系统
     </a>
@@ -275,36 +275,7 @@
             </div>   
 
         </div>
-
-
-        <h1 class="text-center" >Hello, world!</h1>
-        <div class="container">
-            <div class="jumbotron">
-                <h1>我的第一个 Bootstrap 页面</h1>
-                <p>重置窗口大小，查看响应式效果！</p> 
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>学的不仅是技术，更是梦想！</p>
-                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>学的不仅是技术，更是梦想！</p>
-                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3> 
-                    <p>学的不仅是技术，更是梦想！</p>
-                    <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-                </div>
-            </div>
-        </div>
-
-
-
-        
+      
     <!-- 底部
     ================================================== -->
       <div class="container text-center">
